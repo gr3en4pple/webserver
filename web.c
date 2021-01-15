@@ -33,6 +33,13 @@ char lienhe[]="HTTP/1.1 200 OK\r\n"
 "<p>1712405 - NGUYEN TRUONG GIANG - HCMUS.</p>"
 "</body></html>\r\n";
 
+char error[]="HTTP/1.1 200 OK\r\n"
+"Content-Type: text/html; charset=UTF-8\r\n\r\n"
+"<!DOCTYPE html>\r\n"
+"<html><head><title>404 Error</title></head>"
+"<body><h1>404 Not Found</h1>"
+"</body></html>\r\n";
+
 int main()
 {
     struct sockaddr_in sv_addr, cli_addr;
@@ -101,7 +108,7 @@ int main()
             }
             else
             {
-                write(fd_cli,"404 Not Found",13);
+                write(fd_cli,error,sizeof(error)-1);
                 close(fd_cli);
             }
 
