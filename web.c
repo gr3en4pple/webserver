@@ -27,9 +27,9 @@ char indexpage[] = "HTTP/1.1 200 OK\r\n"
 char lienhe[] = "HTTP/1.1 200 OK\r\n"
                 "Content-Type: text/html; charset=UTF-8\r\n\r\n"
                 "<!DOCTYPE html>\r\n"
-                "<html><head><title>Contacts</title></head>"
+                "<html><head><title style=\"color:blue\">Contacts</title></head>"
                 "<body><h1>CONTACT US</h1>"
-                "<p>1712405 - Nguyen Truong Giang<br />1712408 - Nguyen Son Hai<br />1712409 - Pham Thanh Hai</p>"
+                "<p style=\"font-size:30px; font-weight:bold; color:blueviolet\">1712405 - Nguyen Truong Giang<br />1712408 - Nguyen Son Hai<br />1712409 - Pham Thanh Hai</p>"
                 "</body></html>\r\n";
 
 char error[] = "HTTP/1.1 200 OK\r\n"
@@ -99,7 +99,7 @@ int main()
                 {
                     write(fd_cli, imageheader, sizeof(imageheader) - 1);
                     fd_jpg = open("test.jpg", O_RDONLY);
-                    sendfile(fd_cli, fd_jpg, NULL, 600000);
+                    sendfile(fd_cli, fd_jpg, NULL, 0x5F5E100);
                     close(fd_jpg);
                 }
                 write(fd_cli, indexpage, sizeof(indexpage) - 1);
