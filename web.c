@@ -67,7 +67,7 @@ int main()
         exit(1);
     }
 
-    if (listen(fd_sv, 10) == -1)
+    if (listen(fd_sv, 100) == -1)
     {
         perror("Failed to listen");
         close(fd_sv);
@@ -77,6 +77,7 @@ int main()
     while (1)
     {
         fd_cli = accept(fd_sv, (struct sockaddr *)&cli_addr, &sin_len);
+        printf("Connection %d accepted", fd_sv);
         if (fd_cli < 0)
         {
             perror("Create socket error:");
@@ -91,7 +92,7 @@ int main()
             if (strncmp(path, "/lienhe.html", 12) == 0)
             {
                 write(fd_cli, lienhe, sizeof(lienhe) - 1);
-                close(fd_cli);
+                // close(fd_cli);
             }
             else if (strncmp(path, "/", 1) == 0 || strncmp(path, "/index.html", 11) == 0)
             {
@@ -103,13 +104,14 @@ int main()
                     close(fd_jpg);
                 }
                 write(fd_cli, indexpage, sizeof(indexpage) - 1);
-                close(fd_cli);
+                // close(fd_cli);
             }
             else
             {
                 write(fd_cli, error, sizeof(error) - 1);
-                close(fd_cli);
+                // close(fd_cli);
             }
+            exit(0);
         }
         close(fd_cli);
     }
