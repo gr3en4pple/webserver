@@ -77,7 +77,7 @@ int main()
     while (1)
     {
         fd_cli = accept(fd_sv, (struct sockaddr *)&cli_addr, &sin_len);
-        printf("Connection %d accepted", fd_sv);
+        printf("New connection %d accepted\n", fd_sv);
         if (fd_cli < 0)
         {
             perror("Create socket error:");
