@@ -96,16 +96,16 @@ int main()
             }
             else if (strcmp(path, "/") == 0 || strcmp(path, "/index.html") == 0)
             {
-                if (strncmp(buffer, "GET /test.jpg", 13) == 0)
+                write(fd_cli, indexpage, sizeof(indexpage) - 1);
+                // close(fd_cli);
+            }
+            else if (strcmp(path, "/test.jpg") == 0)
                 {
                     write(fd_cli, imageheader, sizeof(imageheader) - 1);
                     fd_jpg = open("test.jpg", O_RDONLY);
                     sendfile(fd_cli, fd_jpg, NULL, 0x5F5E100);
                     close(fd_jpg);
                 }
-                write(fd_cli, indexpage, sizeof(indexpage) - 1);
-                // close(fd_cli);
-            }
             else
             {
                 write(fd_cli, error, sizeof(error) - 1);
