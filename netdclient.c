@@ -34,7 +34,7 @@ int sendMessage(char message[])
     struct sockaddr_in saddr;
     memset(&saddr, 0, sizeof(saddr));
     saddr.sin_family = AF_INET;
-    inet_pton(AF_INET,"192.168.0.1", &(saddr.sin_addr));
+    saddr.sin_addr.s_addr = inet_addr("192.168.0.1");
     saddr.sin_port = htons(8080);
 
     if (connect(serverq_sock, (struct sockaddr *)&saddr, sizeof(saddr)) < 0)
