@@ -82,7 +82,6 @@ int main()
       strcpy(msg.mtext, buffer);
       /* send the message */
       msgsnd(qid, &msg, sizeof(msg), IPC_NOWAIT);
-      printf("%s wrote to message queue\n", msg.mtext);
     }
     close(client_fd);
   }
