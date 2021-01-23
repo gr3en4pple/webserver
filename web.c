@@ -94,7 +94,7 @@ int main()
                 write(fd_cli, lienhe, sizeof(lienhe) - 1);
                 // close(fd_cli);
             }
-            else if (strncmp(path, "/", 1) == 0 || strncmp(path, "/index.html", 11) == 0)
+            else if (strcmp(path, "/") == 0 || strncmp(path, "/index.html", 11) == 0)
             {
                 if (strncmp(buffer, "GET /test.jpg", 13) == 0)
                 {
