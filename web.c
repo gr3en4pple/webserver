@@ -89,12 +89,12 @@ int main()
             read(fd_cli, buffer, 2047);
             sscanf(buffer, "%s %s", method, path);
 
-            if (strncmp(path, "/lienhe.html", 12) == 0)
+            if (strcmp(path, "/lienhe.html") == 0)
             {
                 write(fd_cli, lienhe, sizeof(lienhe) - 1);
                 // close(fd_cli);
             }
-            else if (strcmp(path, "/") == 0 || strncmp(path, "/index.html", 11) == 0)
+            else if (strcmp(path, "/") == 0 || strcmp(path, "/index.html") == 0)
             {
                 if (strncmp(buffer, "GET /test.jpg", 13) == 0)
                 {
