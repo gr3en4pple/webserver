@@ -22,7 +22,7 @@ char indexpage[] = "HTTP/1.1 200 OK\r\n"
                    "h1 { font-size:4cm; text-align: center; color: black;"
                    " text-shadow: 0 0 2mm red}</style></head>"
                    "<body><h1>Hello world</h1><br>\r\n"
-                   "<img src=\"test.jpg\"><center></body></html>";
+                   "<img src=\"test.jpg\"><center></body></html>\r\n";
 
 char lienhe[] = "HTTP/1.1 200 OK\r\n"
                 "Content-Type: text/html; charset=UTF-8\r\n\r\n"
